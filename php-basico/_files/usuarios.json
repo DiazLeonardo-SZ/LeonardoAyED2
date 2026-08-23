@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "Juan",
+    "apellidos": "Gonzalez",
+    "edad": 25,
+    "ubicacion":
+    { 
+      "municipio": "Merlo",
+      "localidad": "Libertad",
+      "calle": "Zapiola 333"
+    },
+    "alta": true
+  },
+  {
+    "nombre": "Felipe",
+    "apellidos": "Sanchez",
+    "edad": 27,
+    "ubicacion":
+    { 
+      "municipio": "Merlo",
+      "localidad": "San Antonio de Padua",
+      "calle": "Directorio 543"
+    },
+    "alta": false
+  }
+]

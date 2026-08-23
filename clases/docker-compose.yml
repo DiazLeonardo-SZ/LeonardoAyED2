@@ -1,0 +1,78 @@
+services:
+  database:
+    image: mysql:5.7
+    container_name: database
+    restart: always
+    ports:
+     - "3309:3306"
+    volumes:
+     - ./mysql:/var/lib/mysql
+     - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+     - ./files:/var/lib/mysql-files
+    env_file: .env
+    networks:
+      - clases    
+  admin:
+    image: phpmyadmin:latest
+    container_name: admin
+    restart: always
+    ports:
+     - "8051:80"
+    env_file: .env
+    links:
+     - database:mysqldb
+    networks:
+      - clases
+  public:
+    build: ./
+    container_name: public
+    restart: always
+    ports:
+     - "8050:80"
+    env_file: .env
+    volumes:
+     - ./public:/var/www/html
+    networks:
+      - clases
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    env_file: .env
+    ports:
+     - "27018:27017"
+    volumes:
+      - ./mongo/:/data/db
+    networks:
+      - clases
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    env_file: .env
+    ports:
+      - "8052:8081"
+    links:
+     - mongodb:mongodb
+    networks:
+     - clases
+  chartdb:
+    image: m0as/chartdb
+    container_name: chartdb
+    restart: always
+    ports:
+     - "8053:80"
+    networks:
+      - clases
+  drawio:
+    image: jgraph/drawio
+    container_name: drawio
+    restart: always
+    ports:
+      - "8054:8080"
+    networks:
+     - clases
+networks:
+  clases:
+    external: true
+    name: clases

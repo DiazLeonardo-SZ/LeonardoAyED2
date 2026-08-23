@@ -1,0 +1,10 @@
+services:
+  clases:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - "8205:80"
+    volumes:
+    - ./:/var/www/html
+    

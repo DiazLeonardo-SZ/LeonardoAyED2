@@ -1,0 +1,33 @@
+RegExp	  |	Carácter especial	| Significado	Descripción
+.		  |	Punto				| Comodín	Cualquier carácter (o texto de tamaño 1)
+A|B		  |	Pipe				| Opciones lógicas	Opciones alternativas (o A o B )
+C(A|B)	  |	Paréntesis			| Agrupaciones alternativas (o CA o CB )
+[0-9]	  |	Corchetes			| Rangos de carácteres	Un dígito (del 0 al 9 )
+[A-Z]	  |	Corchetes			| Una letra mayúscula de la A a la Z
+[^A-Z]	  |	^ en corchetes		| Exclusión	de una letra que no sea mayúscula de la A a la Z
+[0-9]*	  |	Asterisco			| Un dígito repetido 0 ó más veces (vacío incluido)
+[0-9]+	  |	Signo más			| Un dígito repetido 1 ó más veces
+[0-9]{3}  |	Llaves				| Coincidencia exacta Cifra de 3 dígitos (dígito repetido 3 veces)
+[0-9]{2,4}|	Coincidencia (rango)| Cifra de 2 a 4 dígitos (rep. de 2 a 4 veces)
+b?		  | Interrogación		| Carácter opcional, el carácter b puede aparecer o puede que no
+\.		  | Barra invert. Escape| El carácter . literalmente (no como comodín)
+
+Atributos HTML para cadenas de texto
+
+	minlength="5" 
+	maxlength="40"
+	pattern="[A-Za-z ]+"
+
+Atributos HTML para campos numericos
+
+	min="18" 
+	max="60"
+	pattern="[0-9]+"
+
+Ejemplo en HTML:
+<input type="text" name="nombre" pattern="[A-Za-z ]+" minlength="5" maxlength="40" required>
+
+Ejemplo en PHP:
+if (preg_match('/^[A-Za-z ]+$/', $_POST['nombre'])) {
+    // válido
+}
