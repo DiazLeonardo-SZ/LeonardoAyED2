@@ -1,0 +1,22 @@
+.verde {
+	color: green;
+}
+
+.rojo {
+	color: red;
+}
+
+.modo-oscuro {
+	background-color: #808080;
+}
+
+.modo-claro {
+	background-color: #FAFAFA;
+}
+
+.formato1 {
+	color: black;
+	background-color: whitesmoke;
+	font-family: monospace;
+	font-size: 15px;
+}
